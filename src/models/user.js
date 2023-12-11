@@ -15,7 +15,6 @@ const userSchema = new mongoose.Schema({
         },
      skills: {
         type: [String],
-        required: true,
         },
      college: {
         type: String,
