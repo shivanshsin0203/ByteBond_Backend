@@ -22,4 +22,4 @@ class userRepository{
         return result;
     }
 }
-module.exports=userRepository();
+module.exports=userRepository;
