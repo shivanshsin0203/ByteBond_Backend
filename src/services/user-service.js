@@ -80,5 +80,15 @@ class userService{
             throw err;
         }
     }
+    async getuserbyid(id){
+        try{
+            const result=await this.userRepo.getuserbyid(id);
+            return result;
+        }
+        catch(err){
+            console.log("Error in getting user by id in service")
+            throw err;
+        }
+    }
 }    
 module.exports=userService;

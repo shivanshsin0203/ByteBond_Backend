@@ -4,6 +4,7 @@ const express=require("express");
 const router=express.Router();
 
 router.post('/signin',UserController.adduser);
-router.get('/getuser',UserController.getallusers);
+router.get('/getalluser',UserController.getallusers);
 router.post('/login',UserController.checkLogin);
+router.get('/getuser/:id',UserController.getuserbyid);
 module.exports=router;

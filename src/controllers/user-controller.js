@@ -41,4 +41,17 @@ const checkLogin=async(req,res)=>{
         res.status(500).json({message:"Error in checking login controller",err});
     }
 }
-module.exports={adduser,getallusers,checkLogin};
+const getuserbyid=async(req,res)=>{
+    try{
+        const result=await userserv.getuserbyid(req.params.id);
+        res.status(200).json(
+            {   data:result,
+                message:"Got user by id successfully",
+                success:true
+            });
+    }
+    catch(err){
+        res.status(500).json({message:"Error in getting user by id controller",err});
+    }
+}
+module.exports={adduser,getallusers,checkLogin,getuserbyid};
