@@ -90,5 +90,6 @@ class userService{
             throw err;
         }
     }
+    
 }    
 module.exports=userService;

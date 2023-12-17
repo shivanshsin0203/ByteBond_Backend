@@ -1,6 +1,7 @@
 const userservice=require('../services/user-service');
 const userserv=new userservice();
-
+const recommendService=require('../services/recommend');
+const recommendServ=new recommendService();
 const adduser=async(req,res)=>{
     try{
         const result=await userserv.adduser(req.body);
@@ -54,4 +55,18 @@ const getuserbyid=async(req,res)=>{
         res.status(500).json({message:"Error in getting user by id controller",err});
     }
 }
-module.exports={adduser,getallusers,checkLogin,getuserbyid};
+const recommend=async(req,res)=>{
+    try{
+        const result=await recommendServ.recommend(req.params.id);
+        res.status(200).json(
+            {   data:result,
+                message:"Recommended successfully",
+                success:true
+            });
+    }
+    catch(err){
+        console.log(err);
+        res.status(500).json({message:"Error in recommending controller",err});
+    }
+}
+module.exports={adduser,getallusers,checkLogin,getuserbyid,recommend};
