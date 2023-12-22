@@ -2,6 +2,8 @@ const userservice=require('../services/user-service');
 const userserv=new userservice();
 const recommendService=require('../services/recommend');
 const recommendServ=new recommendService();
+const messageService=require('../services/message-service');
+const messageServ=new messageService();
 const adduser=async(req,res)=>{
     try{
         const result=await userserv.adduser(req.body);
@@ -69,4 +71,18 @@ const recommend=async(req,res)=>{
         res.status(500).json({message:"Error in recommending controller",err});
     }
 }
-module.exports={adduser,getallusers,checkLogin,getuserbyid,recommend};
+const message=async(req,res)=>{
+    try{
+        const result=await messageServ.previousMsg(req.params.id);
+        res.status(200).json(
+            {   data:result,
+                message:"Messaged successfully",
+                success:true
+            });
+    }
+    catch(err){
+        console.log(err);
+        res.status(500).json({message:"Error in messaging controller",err});
+    }
+}
+module.exports={adduser,getallusers,checkLogin,getuserbyid,recommend,message};

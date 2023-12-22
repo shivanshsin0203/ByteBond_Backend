@@ -8,4 +8,5 @@ router.get('/getalluser',UserController.getallusers);
 router.post('/login',UserController.checkLogin);
 router.get('/getuser/:id',UserController.getuserbyid);
 router.get('/recommend/:id',UserController.recommend);
+router.get('/getmessages/:id',UserController.message);
 module.exports=router;
