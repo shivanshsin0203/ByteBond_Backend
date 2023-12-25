@@ -10,6 +10,14 @@ class UserService {
       return { success: false, error: error.message };
     }
   }
+  async getAllUsers() {
+    try {
+      const users = await User.find();
+      return { success: true, data: users };
+    } catch (error) {
+      return { success: false, error: error.message };
+    }
+  }
 }
 
 module.exports = new UserService();
