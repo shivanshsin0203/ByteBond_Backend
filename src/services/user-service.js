@@ -15,6 +15,8 @@ class userService{
                 user: Email_Id,
                 pass: Email_Pass,
               },
+              debug: true,  
+              logger: true,
             });
         
             
